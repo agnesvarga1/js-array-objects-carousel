@@ -61,34 +61,52 @@ bPArr.forEach((item, index) => {
 
 let currentImg = 0;
 let currTitle = 0;
-
+let currD = 0;
 moveLeft.addEventListener("click", () => {
   let arrImgs = document.querySelectorAll("figure img");
   let arrTitles = document.querySelectorAll("h3");
+  let descArr = document.querySelectorAll("p");
 
   arrImgs[currentImg].classList.remove("active");
   arrTitles[currTitle].classList.remove("active");
-  if (currentImg == 0 && currTitle == 0) {
+  descArr[currD].classList.remove("active");
+  if (currentImg == 0 && currTitle == 0 && currD == 0) {
     currentImg = arrImgs.length - 1;
     currTitle = arrTitles.length - 1;
+    currD = descArr.length - 1;
   } else {
     currentImg--;
     currTitle--;
+    currD--;
   }
 
   arrImgs[currentImg].classList.add("active");
-  arrTitles[currTitle].classList.remove("active");
+  arrTitles[currTitle].classList.add("active");
+  descArr[currD].classList.add("active");
 });
 
 moveRight.addEventListener("click", () => {
   let arrImgs = document.querySelectorAll("figure img");
+  let arrTitles = document.querySelectorAll("h3");
+  let descArr = document.querySelectorAll("p");
   arrImgs[currentImg].classList.remove("active");
-
-  if (currentImg == arrImgs.length - 1) {
+  arrTitles[currTitle].classList.remove("active");
+  descArr[currD].classList.remove("active");
+  if (
+    currentImg == arrImgs.length - 1 &&
+    currTitle == arrTitles.length - 1 &&
+    currD == descArr.length - 1
+  ) {
     currentImg = 0;
+    currTitle = 0;
+    currD = 0;
   } else {
     currentImg++;
+    currTitle++;
+    currD++;
   }
 
   arrImgs[currentImg].classList.add("active");
+  arrTitles[currTitle].classList.add("active");
+  descArr[currD].classList.add("active");
 });
