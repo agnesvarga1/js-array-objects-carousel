@@ -36,3 +36,6 @@ const bPArr = [
       "Budapest's Parliament, an architectural marvel, boasts intricate details inspired by Gothic and Renaissance styles, overlooking the Danube as a symbol of Hungary's grandeur.",
   },
 ];
+
+const moveLeft = document.querySelector(".fa-circle-chevron-left");
+const moveRigt = document.querySelector(".fa-circle-chevron-right");
