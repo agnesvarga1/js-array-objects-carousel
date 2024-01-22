@@ -49,10 +49,7 @@ img.normal {
   justify-content: center;
   position: relative;
 }
-/* .arrows {
-  position: absolute;
-  top: 0;
-} */
+
 .fa-circle-chevron-left,
 .fa-circle-chevron-right {
   font-size: 2rem;
@@ -62,7 +59,7 @@ img.normal {
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
-  z-index: 2;
+  z-index: 1;
 }
 .fa-circle-chevron-left {
   left: 50px;

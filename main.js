@@ -38,23 +38,17 @@ const bPArr = [
 ];
 const mainSlider = document.querySelector(".main-slideshow");
 const thumbnailsHTml = document.querySelector(".thumbnail-pics");
-const moveLeft = document.querySelector(".fa-circle-chevron-left");
-const moveRigt = document.querySelector(".fa-circle-chevron-right");
-// mainSlider.innerHTML += ` <div class="current-pic">
-// <figure>
-//   <div class="description-main">
-//     <h3>Title</h3>
-//     <p>
-//       Lorem ipsum dolor sit amet consectetur adipisicing elit.
-//       Exercitationem tenetur ratione quasi reprehenderit expedita
-//       doloremque tempora eveniet incidunt neque sed rerum nam saepe
-//       quibusdam nesciunt, cumque officiis fuga laboriosam delectus?
-//     </p>
-//   </div>
-//   <img class="normal" src="./img/budapest-10.jpg" alt="" />
-// </figure>
-// </div>`;
+const moveLeft = document.querySelector("#btn-left");
+const moveRight = document.querySelector("#btn-right");
 
 bPArr.forEach((item) => {
   thumbnailsHTml.innerHTML += ` <img class="thumbnail-img" src="./img/${item.img}" alt="" />`;
+});
+
+moveLeft.addEventListener("click", () => {
+  console.log("Left got clicked");
+});
+
+moveRight.addEventListener("click", () => {
+  console.log("Right got clicked");
 });
