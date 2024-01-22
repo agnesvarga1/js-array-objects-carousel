@@ -22,10 +22,22 @@ main {
   flex-direction: column;
   align-items: center;
 }
+figure {
+  position: relative;
+}
+.description-main {
+  position: absolute;
+  width: 40%;
+  right: 0;
+  text-align: left;
+  padding: 1rem;
+  color: #fff;
+}
 .current-pic {
   display: flex;
   justify-content: center;
 }
+
 img.normal {
   display: block;
   width: 750px;
@@ -37,15 +49,20 @@ img.normal {
   justify-content: center;
   position: relative;
 }
-
+/* .arrows {
+  position: absolute;
+  top: 0;
+} */
 .fa-circle-chevron-left,
 .fa-circle-chevron-right {
-  position: absolute;
   font-size: 2rem;
   color: #fff;
+  opacity: 0.8;
+  position: absolute;
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
+  z-index: 2;
 }
 .fa-circle-chevron-left {
   left: 50px;
@@ -54,10 +71,10 @@ img.normal {
 .fa-circle-chevron-right {
   right: 50px;
 }
-img.thumbnail-img {
+.thumbnail-img {
   display: block;
   width: calc(750px / 6);
-  height: 100%;
+  height: inherit;
   opacity: 0.7;
 }
 
