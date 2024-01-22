@@ -38,6 +38,8 @@ const bPArr = [
 ];
 const mainSlider = document.querySelector(".main-slideshow");
 const thumbnailsHTml = document.querySelector(".thumbnail-pics");
+const figureHtml = document.querySelector("figure");
+const descriptionHtml = document.querySelector(".description-main");
 const moveLeft = document.querySelector("#btn-left");
 const moveRight = document.querySelector("#btn-right");
 
@@ -45,10 +47,48 @@ bPArr.forEach((item) => {
   thumbnailsHTml.innerHTML += ` <img class="thumbnail-img" src="./img/${item.img}" alt="" />`;
 });
 
+bPArr.forEach((item, index) => {
+  if (index === 0) {
+    figureHtml.innerHTML += `<img class="active" src="./img/${item.img}" alt="" />`;
+    descriptionHtml.innerHTML += `<h3 class="active">${item.title}</h3>`;
+    descriptionHtml.innerHTML += `<p class="active">${item.descript}</p>`;
+  } else {
+    figureHtml.innerHTML += `<img  src="./img/${item.img}" alt="" />`;
+    descriptionHtml.innerHTML += `<h3 >${item.title}</h3>`;
+    descriptionHtml.innerHTML += `<p >${item.descript}</p>`;
+  }
+});
+
+let currentImg = 0;
+let currTitle = 0;
+
 moveLeft.addEventListener("click", () => {
-  console.log("Left got clicked");
+  let arrImgs = document.querySelectorAll("figure img");
+  let arrTitles = document.querySelectorAll("h3");
+
+  arrImgs[currentImg].classList.remove("active");
+  arrTitles[currTitle].classList.remove("active");
+  if (currentImg == 0 && currTitle == 0) {
+    currentImg = arrImgs.length - 1;
+    currTitle = arrTitles.length - 1;
+  } else {
+    currentImg--;
+    currTitle--;
+  }
+
+  arrImgs[currentImg].classList.add("active");
+  arrTitles[currTitle].classList.remove("active");
 });
 
 moveRight.addEventListener("click", () => {
-  console.log("Right got clicked");
+  let arrImgs = document.querySelectorAll("figure img");
+  arrImgs[currentImg].classList.remove("active");
+
+  if (currentImg == arrImgs.length - 1) {
+    currentImg = 0;
+  } else {
+    currentImg++;
+  }
+
+  arrImgs[currentImg].classList.add("active");
 });
