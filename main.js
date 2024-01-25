@@ -91,13 +91,13 @@ const movementL = function () {
   arrImgs[currentImg].classList.remove("active");
   arrTitles[currentImg].classList.remove("active");
   descArr[currentImg].classList.remove("active");
-  addTumbactive();
+
   if (currentImg == 0) {
     currentImg = arrImgs.length - 1;
   } else {
     currentImg--;
   }
-
+  addTumbactive();
   arrImgs[currentImg].classList.add("active");
   arrTitles[currentImg].classList.add("active");
   descArr[currentImg].classList.add("active");
@@ -107,13 +107,13 @@ const movementR = () => {
   arrImgs[currentImg].classList.remove("active");
   arrTitles[currentImg].classList.remove("active");
   descArr[currentImg].classList.remove("active");
-  addTumbactive();
+
   if (currentImg == arrImgs.length - 1) {
     currentImg = 0;
   } else {
     currentImg++;
   }
-
+  addTumbactive();
   arrImgs[currentImg].classList.add("active");
   arrTitles[currentImg].classList.add("active");
   descArr[currentImg].classList.add("active");
