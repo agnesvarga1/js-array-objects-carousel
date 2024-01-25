@@ -9,10 +9,16 @@ html {
 }
 body {
   text-align: center;
+  color: #e3dbdb;
+  background-color: #121212;
 }
 
 main {
   height: 100vh;
+}
+
+h1 {
+  margin-block: 1rem;
 }
 .main-slideshow {
   position: relative;
@@ -78,13 +84,18 @@ img {
   display: block;
   width: calc(750px / 6);
   height: inherit;
-  opacity: 0.7;
+  opacity: 0.6;
+  cursor: pointer;
 }
 
 img.thumbnail-img:hover {
-  opacity: 1;
+  opacity: 0.8;
 }
 
 .active {
   display: block;
+}
+
+.thumb-active {
+  opacity: 1;
 }
