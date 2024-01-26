@@ -86,8 +86,14 @@ const addTumbactive = () => {
 };
 
 addTumbactive();
+const removeAllActive = () => {
+  arrImgs.forEach((img) => img.classList.remove("active"));
+  arrTitles.forEach((img) => img.classList.remove("active"));
+  descArr.forEach((img) => img.classList.remove("active"));
+};
 
 const movementL = function () {
+  removeAllActive();
   arrImgs[currentImg].classList.remove("active");
   arrTitles[currentImg].classList.remove("active");
   descArr[currentImg].classList.remove("active");
@@ -98,12 +104,14 @@ const movementL = function () {
     currentImg--;
   }
   addTumbactive();
+
   arrImgs[currentImg].classList.add("active");
   arrTitles[currentImg].classList.add("active");
   descArr[currentImg].classList.add("active");
 };
 
 const movementR = () => {
+  removeAllActive();
   arrImgs[currentImg].classList.remove("active");
   arrTitles[currentImg].classList.remove("active");
   descArr[currentImg].classList.remove("active");
@@ -119,14 +127,38 @@ const movementR = () => {
   descArr[currentImg].classList.add("active");
 };
 
-thumbnailsAll.forEach((item) => {
+thumbnailsAll.forEach((item, idx) => {
   item.addEventListener("click", function () {
     thumbnailsAll.forEach((item) => item.classList.remove("thumb-active"));
+
     if (!item.classList.contains("thumb-active")) {
       this.classList.add("thumb-active");
     } else {
       item.classList.remove("thumb-active");
     }
+
+    arrImgs.forEach((img) => img.classList.remove("active"));
+
+    arrImgs.forEach((img, index) => {
+      if (idx === index) {
+        img.classList.add("active");
+      }
+      currentImg = idx;
+      // addTumbactive();
+    });
+    arrTitles.forEach((img) => img.classList.remove("active"));
+    arrTitles.forEach((title, index) => {
+      if (idx === index) {
+        title.classList.add("active");
+      }
+    });
+
+    descArr.forEach((img) => img.classList.remove("active"));
+    descArr.forEach((desc, index) => {
+      if (idx === index) {
+        desc.classList.add("active");
+      }
+    });
   });
 });
 
